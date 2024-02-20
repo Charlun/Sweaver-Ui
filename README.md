@@ -1,6 +1,8 @@
 # SweaverUi
 Ui lib for my project (practice now)
 
+为了一个练手的博客项目做的ui组件库（就是个小练习）
+
 ## 基础配置
 ### 开始
 通过包管理器安装SweaverUi
@@ -91,6 +93,93 @@ import {SweaverButton} from 'sweaver-ui';
 | 活动条高度   | ActiveHeight | Number | 单位px|
 | 活动条宽度   | ActiveWidth | String  | 百分比|
 | 按钮颜色   | ButtonColor | String  | /|
+
+---
+
+### Sweaver-Input
+
+#### 使用方法
+
+```html
+<!-- 默认状态为普通输入框 -->
+<Sweaver-Input>
+    <!-- 如果有标签写在这里没有则直接使用自闭合标签即可 -->
+<Sweaver-Input/>
+<!-- 此时为密文输入框 -->
+<Sweaver-Input Passward>
+```
+
+#### 属性
+
+|  属性作用  |   属性名    |  类型  |  备注  |
+| :--------: | :---------: | :----: | :----: |
+| 是否为密文 |  Passward   | Boolean |   /    |
+|    高度    |   Height    | Number | 单位px |
+|    宽度    |    Width    | Number | 单位px |
+|   提示语   | Placeholder | String |   /    |
+|   初始值   |    Value    | String | /|
+
+---
+
+### Sweaver-CheckBox
+
+#### 使用方法
+
+```html
+<!-- 默认状态为多选框 -->
+<Sweaver-CheckBox>
+    <!-- 如果有标签写在这里没有则直接使用自闭合标签即可 -->
+<Sweaver-CheckBox/>
+<!-- 此时为单选框 -->
+<Sweaver-CheckBox Radio>
+```
+
+#### 属性
+
+|  属性作用  |   属性名    |  类型   | 备注 |
+| :--------: | :---------: | :-----: | :--: |
+| 是否为单选 |    Radio    | Boolean |  /   |
+|    大小    |    Size     | String  |  /   |
+| 选框组标识 |    Name     | String  |  /   |
+
+---
+
+### Sweaver-SearchBar
+
+#### 使用方法
+
+```html
+<Sweaver-SearchBar>
+```
+
+#### 属性
+
+| 属性作用 |   属性名    |  类型  |  备注  |
+| :------: | :---------: | :----: | :----: |
+|   高度   |   Height    | Number | 单位px |
+|   宽度   |    Width    | Number | 单位px |
+|  提示语  | Placeholder | String |   /    |
+|  初始值  |    Value    | String |   /    |
+
+---
+
+### Sweaver-AvatarMenu
+
+#### 使用方法
+
+```html
+<Sweaver-AvatarMenu Src="此处为头像src">
+    <!-- 在此处添加你的菜单 -->
+</Sweaver-AvatarMenu>
+```
+
+#### 属性
+
+|          属性作用          | 属性名 |  类型  |  备注  |
+| :------------------------: | :----: | :----: | :----: |
+|            大小            |  Size  | Number | 单位px |
+|          头像路径          |  Src   | String |   /    |
+| 当头像无法显示时的替代文本 |  Alt   | String |   /    |
 
 <br>
 <br>
