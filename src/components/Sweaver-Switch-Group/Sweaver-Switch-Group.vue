@@ -3,9 +3,8 @@
     class="SwitchGroup"
     :style="{
       backgroundColor: BgColor,
-      height: Height + 'px',
-      borderRadius: Height * 0.5 + 'px',
-      width: Width + 'px'
+      height: Height,
+      width: Width
     }"
   >
     <!-- 通过v-for渲染-->
@@ -26,19 +25,18 @@
       class="ActiveElement"
       :style="{
         width: itemWidth,
-        backgroundColor: ActiveColor,
         height: ActiveHeight + 'px',
         borderRadius: ActiveHeight * 0.5 + 'px',
         maxHeight: Height + 'px'
       }"
     >
-      <div class="ActiveContent" :style="{ width: ActiveWidth }"></div>
+      <div class="ActiveContent" :style="{ width: ActiveWidth,backgroundColor: ActiveColor,}"></div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref} from 'vue'
 const buttons = ref([])
 onMounted(() => {
   Array.from(slots.value.children).forEach((childElement) => {
@@ -62,12 +60,12 @@ const props = defineProps({
     type: String
   },
   Height: {
-    type: Number,
-    default: 20
+    type: String,
+    default: "20px"
   },
   Width: {
-    type: Number,
-    default: 1000
+    type: String,
+    default: "30%"
   },
   ActiveColor: {
     type: String
@@ -89,9 +87,12 @@ const props = defineProps({
     default: false
   }
 })
+const emit = defineEmits(['switchIndex'])
 function toggleActionIndex(index) {
   actionIndex.value = index
   ActiveElement.value.style.left = `calc(100%/${buttons.value.length}*${index})`
+  console.log(index)
+  emit('switchIndex',index)
 }
 </script>
 
@@ -99,9 +100,10 @@ function toggleActionIndex(index) {
 .SwitchGroup {
   position: relative;
   display: flex;
-  background-color: var(--primary-color);
+  /* background-color: var(--primary-color); */
   align-items: center;
   overflow: hidden;
+  border-radius: 100px;
 }
 .button {
   z-index: 1;

@@ -1,6 +1,6 @@
 <template>
     <label>
-        <input :type="type" :name="Name" :style="{width: Size,height: Size}"/>
+        <input :type="type" :name="Name" :style="{width: Size,height: Size ,backgroundColor: BgColor,border:`3px solid ${BgColor}`  }"/>
         <slot></slot>
     </label>
 </template>
@@ -17,6 +17,10 @@ const props = defineProps({
     Size: {
         type: String,
         default: '15px'
+    },
+    BgColor: {
+        type: String,
+        default: 'white'
     }
 })
 const type = computed(() => {
@@ -25,6 +29,7 @@ const type = computed(() => {
 </script>
 <style scoped>
 input {
+    box-sizing: border-box;
     appearance: none;
     transition: 0.5s;
     border-radius: 20%;
@@ -36,7 +41,7 @@ input[type="radio"]{
 }
 input:checked {
     transform: scale(1.3);
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
 }
 label {
     -webkit-user-select: none;
@@ -46,6 +51,8 @@ label {
     cursor: pointer;
     display: inline-flex;
     align-items: center;
+    font-family: INTREB;
+    font-weight: bold;
 }
 label::before {
     color: var(--primary-color);

@@ -1,7 +1,9 @@
 <template>
     <label>
         <slot></slot>
-        <input :type="type" :style="{ width: Witdh + 'px' ,height : Height + 'px' }" :placeholder="Placeholder" :value="Value">
+        <input :type="type"
+            :style="{ width: Width, height: Height, borderBottom: `${BorderSize} solid ${BorderColor}`, backgroundColor: BgColor }"
+            :placeholder="Placeholder" :value="Value">
     </label>
 </template>
 <script setup>
@@ -11,12 +13,12 @@ const props = defineProps({
     Passward: {
         type: Boolean,
     },
-    Witdh: {
-        type: Number,
-        default: 200,
+    Width: {
+        type: String,
+        default: "200px",
     },
-    Height:{
-        type: Number,
+    Height: {
+        type: String,
     },
     Placeholder: {
         type: String,
@@ -26,9 +28,21 @@ const props = defineProps({
         type: String,
         default: "",
     },
+    BorderColor: {
+        type: String,
+        default: "var(--primary-color)",
+    },
+    BorderSize: {
+        type: String,
+        default: "5px",
+    },
+    BgColor: {
+        type: String,
+        default: "Bgcolor"
+    }
 })
 const type = computed(() => {
-    return props.passward ? "password" : "text"
+    return props.Passward ? "password" : "text"
 })
 </script>
 <style scoped>
@@ -37,16 +51,24 @@ input {
     margin-bottom: 15px;
     border: 0;
     border-radius: 3px;
-    border-bottom: 5px solid var(--primary-color);
     background: none;
     transition: 0.5s;
-    background-color: var(--background-color);
+    font-size: 1.2em;
+    font-family: INTREB;
+    font-weight: bold;
+    color: white;
 }
-
+input::placeholder {
+    color: white;
+}
 input:focus {
     outline: none;
-    box-shadow: 0 0 20px 10px rgb(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 20px 10px rgb(0, 0, 0, 0.1); */
     transform: scale(1.02) translate(-3px, -3px);
+    font-family: INTREB;
+    font-weight: bold;
+    color: white;
+    background: none;
 }
 
 label {
@@ -55,4 +77,21 @@ label {
     -ms-user-select: none;
     user-select: none;
 }
+
+/* 设置密码输入框右侧按钮的颜色 */
+input[type="password"]::-webkit-password-toggle-button {
+    -webkit-appearance: none;
+    color: white;
+}
+
+/* Firefox 特定样式 */
+input[type="password"]::-moz-password-eye {
+    color: white;
+}
+
+/* Edge 特定样式 */
+input[type="password"]::-ms-reveal {
+    color: white;
+}
+
 </style>

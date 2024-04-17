@@ -54,11 +54,11 @@ defineProps({
         pointer-events: auto;
         top: 0;
       }
-      #avatar:hover {
+      /* #avatar:hover {
         opacity: 1;
         display: inline;
         pointer-events: auto;
-      }
+      } */
       #img {
         position: relative;
         z-index: 999;
