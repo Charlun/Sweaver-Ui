@@ -20,7 +20,7 @@ defineProps({
     },
     Height: {
         type: String,
-        default: "30px",
+        default: "50px",
     },
     Placeholder: {
         type: String,
@@ -50,7 +50,7 @@ onBeforeUnmount(() => {
 <style scoped>
 span {
     display: flex;
-    padding: 10px;
+    padding: 5px;
     border-radius: 100px;
     background: none;
     transition: 0.5s;
